@@ -158,4 +158,26 @@ This section is optional, and it builds on section 1. Attendees who complete sec
 ### **Step 1: Initialize file and variables**
 
 In this step, you will create a file in OIC and make use of variables in your integration to simplify the workflow. **Important: you must deactivate your integration before you begin this step. To do so, find your integration and click the "power button" to deactivate it.**
-1. In your integration, hover your cursor over the grey arrow between "Schedule" and "Map to getTable". Search for "assign".
+1. In your integration, hover your cursor over the grey arrow between "Schedule" and "Map to getTable". Search for "assign" and select the **Assign** action. In the dialog pop up box, give it a name (for instance "initVars") and click **Create**.
+![](images/2.1.1.png)
+2. Click the lower-right plus to add a variable. **Change** the "initVars_assignment_1" variable name to `FILENAME`. Then, click the pencil icon to give this variable a value. For the Expression, you will simply write `"workshop.csv"`, quotation marks included. _Make sure the quotation marks are "unformatted", i.e. not the so-called “smart quotation marks”._ Add another variable called `FILEDIR` with value `"/"`. Once you are done, click **Close**.
+![](images/2.1.2.png)
+3. Hover your cursor over the grey arrow between "getTable" and "forEachRow". Search for "stage file" and select the **Stage File** action.
+![](images/2.1.3.png)
+4. In the wizard, give the action a name, for instance "initFile", and click **Next**.
+![](images/2.1.4.png)
+5. **Choose** the **Stage File Operation** to be **Write File**. For the **file name**, click the pencil icon, and drag `$FILENAME` to the expression box (or use the chevron). Then click **Save** and **Exit Expression Builder**. Do the same thing for **output directory**, except using the variable `$FILEDIR` this time. Then click **Next**.
+![](images/2.1.5.1.png)
+Editing the expression for the file name and output directory:
+![](images/2.1.5.2.png)
+6. Ensure that you want to specify the structure of the contents of the file as CSV, then click **Next**.
+![](images/2.1.6.png)
+7. For the **delimited data file**, choose [workshop.csv](workshop.csv), which is located in this git repository. The **record name** should be "record", and the **recordset name** should be "recordSet". _But like most other names, there is no restriction for these names._ Then click **Next**.
+![](images/2.1.7.png)
+8. Click **Done**.
+![](images/2.1.7.2.png)
+
+Your integration should look something like this:
+![](images/2.1.int.png)
+
+***Save your integration.***
