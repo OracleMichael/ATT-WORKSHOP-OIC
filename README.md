@@ -33,14 +33,29 @@ Now that you have the wallet file, you can create the connection.
 ![](images/1.1.6.png)
 7. **Create** a connection (upper right corner), then after the dialog box pops up, search for "ATP" and select the "Oracle ATP" adapter.
 ![](images/1.1.7.png)
-8. In the wizard, give the connection a name, then click **Create**. We recommend that you add your name to the connection to differentiate it from connections created by other workshop attendees.
+8. In the wizard, give the connection a name, then click **Create**. We recommend that you add your name to the name to differentiate it from connections created by other workshop attendees. Then click **Create**.
 ![](images/1.1.8.png)
 9. Perform the following:
   - **Click** the upload button (square button with up arrow) and upload the wallet file you downloaded. This should be the entire zip file.
   - For the **Wallet Password**, type the password you provided when you downloaded the wallet file.
   - For the **Database Service Username**, type "ADMIN".
   - For the **Database Service Password**, your workshop instructor will provide you with the admin password.
-  - Finally, right above the security section, for the not-so-optional "Service Name (optional)" enter "atpworkshop_high".
+  - Finally, right above the security section, for the not-so-optional "Service Name (optional)" enter "atpworkshop_high". _Note: to locate a list of valid service names, unzip the wallet file, then open the tnsnames.ora file._
 ![](images/1.1.9.png)
 10. Once you are done with the above, click "Test". The connection should give you a green banner notification, and the connection should show as 100% configured (100% in a blue oval). **Save** your connection.
 ![](images/1.1.10.png)
+
+### **Step 2: Initialize the integration**
+
+1. **Click** the hamburger menu in the upper left corner and select **Integrations**, then **Connections**.
+![](images/1.2.1.png)
+2. **Create** an integration (upper right corner), then after the dialog box pops up, select "Scheduled Orchestration".
+![](images/1.2.2.png)
+3. In the wizard, give the integration a name, then click **Create**. We recommend that you add your name to the name to differentiate it from integrations created by other workshop attendees. Then click **Create**. _The description is optional, but for your convenience: "This integration queries a table in ATP, then row-by-row modifies the data and updates the table in ATP."_
+![](images/1.2.3.png)
+_Note: for a better integration experience, we recommend you change the layout to "horizontal" and to click the reset button if your integration becomes too messy._
+![](images/1.2.aux1.png)
+
+### **Step 3: Invoke ATP to retrieve data**
+
+1. 
