@@ -4,15 +4,15 @@ This repository houses the materials for the hands-on portion of the workshop.
 
 ## Prerequisites
 
-- Set up your workshop user. This generally consists of clicking the link in your email with subject "Please Reset Your Password for Your atttglobalnetworkservice Account"
+- Set up your workshop user. This consists of clicking the link in your email with subject "Please Reset Your Password for Your atttglobalnetworkservice Account" and ensuring you can log in to cloud.oracle.com (with tenancy name atttglobalnetworkservice).
 - Make sure you are able to log in to Oracle Integration Cloud (OIC). Your workshop instructor will provide you the link to the **OIC home page**.
 - Once you are able to log in to OIC, make sure you can create a connection and an integration.
 
 With these steps you are good to go!
 
-## Part 1: Connecting to ATP
+## Section 1: Connecting to ATP
 
-This part handles the "non-optional" part of the lab. It is our objective to make sure every lab attendee is able to complete this integration.
+This section handles the "non-optional" part of the lab. It is our objective to make sure every lab attendee is able to complete this integration.
 
 ### **Step 1: Create the ATP Connection**
 
@@ -48,6 +48,7 @@ Now that you have the wallet file, you can create the connection.
 
 ### **Step 2: Initialize the integration**
 
+This step initializes the integration that you will build on throughout the hands-on portion.
 1. **Click** the hamburger menu in the upper left corner and select **Integrations**, then **Connections**.
 ![](images/1.2.1.png)
 2. **Create** an integration (upper right corner), then after the dialog box pops up, select "Scheduled Orchestration".
@@ -59,6 +60,7 @@ _Note: for a better integration experience, we recommend you change the layout t
 
 ### **Step 3: Invoke ATP to retrieve data**
 
+This step sets up the invocation of ATP to retrieve all data from the instance.
 1. Hover your cursor over the grey arrow from the schedule to the stop node, and **click the plus**. Locate the ATP connection you configured. _Stuck? If you were unable to create your connection, please use the "WORKSHOP_ATP_MCHEN" connection._
 ![](images/1.3.1.png)
 2. In the wizard, give the invoke a name. These names only have to be unique within the integration, so they can be generic like "getTable". For the **operation to perform**, select "Perform an Operation On a Table", and select "Select". Then click **Next**. _Note: you may also opt to "Run a SQL Statement". This option allows you to customize your query, but is often problematic due to the need to confirm that the query runs properly and the decrease in user control over the result of the query. For these reasons we recommend you to select "Perform an Operation..." for this hands-on exercise._
@@ -74,3 +76,32 @@ Summary page:
 
 Your integration should look something like this:
 ![](images/1.3.int.png)
+
+***Save your integration.***
+
+### **Step 4: Update ATP**
+
+This step loops through each item in ATP, then updates the table with the specified operation.
+1. Hover your cursor over the grey arrow between "getTable" and the stop node, and **click the plus**. Search for "for each" and click on the "For Each" action.
+![](images/1.4.1.png)
+2. Complete these steps for the for each action:
+  - Give the action a descriptive name (for instance, "forEachRow").
+  - For the **Repeating Element**, click the `Workshop$#..#` element, and either drag it to the "Repeating Element" box, or click the single right chevron. This item is nested as such: `$getTable -> Workshop$#..#Collection -> Workshop$#..#`. This is also the only element with the **repeatable element** symbol (circled in blue).
+  - For the **Current Element Name**, give it a descriptive name (such as "currRow").
+Once you are done with the above, click **Create**.
+![](images/1.4.2.png)
+3. Hover your cursor over the grey arrow between "forEachRow" and the stop node. It might help to click **Reset** to re-position all the nodes in the integration. Locate the ATP connection you configured. _Stuck? If you were unable to create your connection, please use the "WORKSHOP_ATP_MCHEN" connection._
+![](images/1.4.3.png)
+4. In the wizard, give the invoke a name (for instance, "updateTable"). For the **operation to perform**, select "Perform an Operation On a Table", and select "Update". Then click **Next**.
+![](images/1.4.4.png)
+5. Select "ADMIN" as the **Schema** and **search** for your custom table, or click **search** with no search parameter and look for a table that bears a close resemblance to your name. See part 3 of step 3 (of section 1) for more information on choosing the table. Once you have located your provisioned table, you may double-click it or single-click and click the single right chevron to add it to the right side. Then click **Import Tables**.
+![](images/1.4.5.png)
+6. Once again, there are no more actions to perform, and the remaining pages are there to show information. Click **Next** and **Done**.
+![](images/1.4.6.1.png)
+Summary page
+![](images/1.4.6.2.png)
+
+Your integration should look something like this:
+![](images/1.4.int.png)
+
+***Save your integration.***
