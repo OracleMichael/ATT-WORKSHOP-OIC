@@ -1,6 +1,6 @@
 # ATT_WORKSHOP-OIC
 
-This repository houses the materials for the hands-on portion of the workshop.
+This repository houses the materials for the hands-on portion of the workshop. The hands-on portion is organized into **sections** that contain multiple **steps**, with each step containing multiple **parts** (so part 1.3.2 is part 2 of step 3 of section 1).
 
 ## Prerequisites
 
@@ -100,6 +100,17 @@ Once you are done with the above, click **Create**.
 ![](images/1.4.6.1.png)
 Summary page
 ![](images/1.4.6.2.png)
+7. Select the **Map to updateTable**, and click on the pencil icon to **edit** the mapper.
+![](images/1.4.7.png)
+8. On the left hand side (LHS), expand **currRow** until you see the four variables (id, name, etc.), and on the right hand side (RHS), expand `Workshop$#..#` until you see the four variables. Drag the LHS variables to their RHS counterparts.
+![](images/1.4.8.png)
+9. Now, you will have a little freedom. In this part, you will make a change to the data being uploaded. We will show two ways to modify the data, but you may experiment with other methods later. You may add both of these modifications to the data (and more) if you wish.
+  - Method 1: string concatenation. Click on **description** on the RHS, then click the edit icon under the x in the bottom editor box (looks like a screwdriver crossed with a wrench, circled in blue<!--the OIC sickle and star, as it were-->). In front of the contents (before the $ sign), type `concat(`, and after the whole string, type `, ".")`. The full string might look something like `concat($currRow/nsmpr0:WorkshopMChen/nsmpr0:description, ".")`. This concatenates a period / full stop at the end of the current description. Click the check mark (circled in red) to the right of the editor box to validate this string.
+  ![](images/1.4.9.1.png)
+  - Method 2: numeric calculation. Click on **quantity** on the RHS, then click the edit icon. At the end of the whole string, add `+1`. This increments the current quantity by 1. Click the check mark to validate this string.
+  ![](images/1.4.9.2.png)
+10. Once you have completed the modification to the data, click **Validate** at the top right of the screen, then **Close**.
+![](images/1.4.10.png)
 
 Your integration should look something like this:
 ![](images/1.4.int.png)
