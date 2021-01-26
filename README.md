@@ -5,14 +5,14 @@ This repository houses the materials for the hands-on portion of the workshop. T
 ## Prerequisites
 
 - Set up your workshop user. This consists of clicking the link in your email with subject "Please Reset Your Password for Your atttglobalnetworkservice Account" and ensuring you can log in to cloud.oracle.com (with tenancy name atttglobalnetworkservice).
-- Make sure you are able to log in to Oracle Integration Cloud (OIC). Your workshop instructor will provide you the link to the **OIC home page**.
-- Once you are able to log in to OIC, make sure you can create a connection and an integration.
+- Make sure you are able to log in to Oracle Integration Cloud (OIC). Your workshop instructor will provide you the link to the **OIC home page**, and show how to navigate to this home page from within the cloud console (cloud.oracle.com).
+- Once you are able to log in to OIC, make sure you can create a connection and an integration. You don't need to actually create these artifacts, you just need to confirm that when you click "Create" you don't receive a yellow banner notification saying "unauthorized" or something similar.
 
 With these steps you are good to go!
 
 ## Section 1: Connecting to ATP
 
-This section handles the "non-optional" part of the lab. It is our objective to make sure every lab attendee is able to complete this integration.
+This section handles the "non-optional" part of the hands-on workshop. It is our objective to make sure every lab attendee is able to complete this integration.
 
 ### **Step 1: Create the ATP Connection**
 
@@ -104,7 +104,7 @@ Summary page
 ![](images/1.4.7.png)
 8. On the left hand side (LHS), expand **currRow** until you see the four variables (id, name, etc.), and on the right hand side (RHS), expand `Workshop$#..#` until you see the four variables. Drag the LHS variables to their RHS counterparts.
 ![](images/1.4.8.png)
-9. Now, you will have a little freedom. In this part, you will make a change to the data being uploaded. We will show two ways to modify the data, but you may experiment with other methods later. You may add both of these modifications to the data (and more) if you wish.
+9. Now, you will have a little freedom. In this part, you will make a change to the data being uploaded. We will show two ways to modify the data, but you may experiment with other methods later. You may add both of these modifications to the data (and more) if you wish. If you wish to make other modifications, do not modify the ID column, as that is the primary key for this table.
   - Method 1: string concatenation. Click on **description** on the RHS, then click the edit icon under the x in the bottom editor box (looks like a screwdriver crossed with a wrench<!--the OIC sickle and star-->). In front of the contents (before the $ sign), type `concat(`, and after the whole string, type `, ".")`. The full string might look something like `concat($currRow/nsmpr0:WorkshopMChen/nsmpr0:description, ".")`. This concatenates a period / full stop at the end of the current description. Click the check mark to the right of the editor box to validate this string.
   ![](images/1.4.9.1.png)
   - Method 2: numeric calculation. Click on **quantity** on the RHS, then click the edit icon. At the end of the whole string, add `+1`. This increments the current quantity by 1. Click the check mark to validate this string.
@@ -151,3 +151,11 @@ This step shows how to manually trigger an integration and how to debug integrat
 
 That's it! For some of you, you will have built your first integration on Oracle Integration Cloud!<!--The first of many, hopefully-->
 
+## Section 2: Sending a notification and building a file
+
+This section is optional, and it builds on section 1. Attendees who complete section 1 are strongly encouraged to move on to this section and finish as much of it as they can.
+
+### **Step 1: Initialize file and variables**
+
+In this step, you will create a file in OIC and make use of variables in your integration to simplify the workflow. **Important: you must deactivate your integration before you begin this step. To do so, find your integration and click the "power button" to deactivate it.**
+1. In your integration, hover your cursor over the grey arrow between "Schedule" and "Map to getTable". Search for "assign".
