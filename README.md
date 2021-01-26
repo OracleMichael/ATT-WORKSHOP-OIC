@@ -175,9 +175,17 @@ Editing the expression for the file name and output directory:
 7. For the **delimited data file**, choose [workshop.csv](workshop.csv), which is located in this git repository. The **record name** should be "record", and the **recordset name** should be "recordSet". _But like most other names, there is no restriction for these names._ Then click **Next**.
 ![](images/2.1.7.png)
 8. Click **Done**.
-![](images/2.1.7.2.png)
+![](images/2.1.8.png)
+9. Select the **Map to initFile** node, and click the pencil icon to **edit** the mapper.
+![](images/2.1.9.png)
+10. On the RHS, **expand** recordSet and record. For each of the four variables, right-click on them and select **Create Target Node**. This allows you to edit the expression for this variable without using a LHS variable. Edit the expression (clicking the wrench-screwdriver icon) and enter the variable name in quotes, so for `ID` the expression would be `"ID"`, etc. Once this is done, **Validate** and **Close** the mapper.
+![](images/2.1.10.png)
 
 Your integration should look something like this:
 ![](images/2.1.int.png)
 
 ***Save your integration.***
+
+### **Step 2: Append to file**
+
+In this step, you will append data to the file you just initialized.
