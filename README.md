@@ -116,3 +116,24 @@ Your integration should look something like this:
 ![](images/1.4.int.png)
 
 ***Save your integration.***
+
+### **Step 5: Activate integration**
+
+This step goes through the process of activating and testing integrations.
+1. First, you will need to resolve any errors that are present in the integration. You can see how many errors/warnings there are by a red/blue circled number next to "Last Saved". If you performed all the steps correctly, you should only see a red circled 1. You can click the circle to view the error and hover over the single entry to view the error.
+![](images/1.5.1.png)
+2. This error is resolved by **enabling a tracking variable** for the integration. Click the menu under the save button and select **Tracking**.
+![](images/1.5.2.png)
+3. Expand the "schedule" variable, and drag the "startTime" variable over the first "Drag a trigger field here". Instead of dragging you can also click the "startTime" variable and click the single right chevron. Click **Save**.
+![](images/1.5.3.png)
+4. Now your integration is ready for activation. **Save your integration**, then click **Close**. This brings you back to the integration home screen, and you can see that your status has changed from "Draft" to "Configured". Hover your cursor over your integration and click the "Power Button".
+![](images/1.5.4.png)
+5. In the dialog box, check the box for "Enable Tracing", and also the box for "Include Payload". Then click **Activate**. _Note: these boxes are generally only checked when testing an integration, as they tend to reveal sensitive/confidential information. Also, here we could create a schedule if we wanted to, but as we will never use it it is simpler to skip that step._
+![](images/1.5.5.png)
+
+Now your integration is active, and you can run it to perform business operations. <!--The world of tech is at your fingertips!!-->
+
+### **Step 6: Run and monitor integration**.
+
+This step shows how to manually trigger an integration and how to debug integrations.
+1. 
