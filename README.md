@@ -144,7 +144,7 @@ This step shows how to manually trigger an integration and how to debug integrat
 ![](images/1.6.2.png)
 3. Now, the integration will run and either complete or throw an error during execution. To view the "job" that was just initiated, navigate back to the integration home page, then go to **Monitoring** > **Integrations** > **Tracking**.
 ![](images/1.6.3.png)
-4. In this page, you will see integrations that have completed execution in the given time frame (default is last hour). It is likely that your integration has already executed and given a success or error. Drill down into the integration run by clicking on the black text (here it is "start Time: 2021-...").
+4. In this page, you will see integrations that have completed execution in the given time frame (default is last hour). It is likely that your integration has already executed and given a success or error. Drill down into the integration run by clicking on the black text (here, it is "start Time: 2021-...").
 ![](images/1.6.4.png)
 5. In this page, you will see the execution pathway highlighted in green. For most integrations, the structure is linear enough that it is not really interesting to look at (unless there is an error), but the green pathway is useful for complex integrations that use branching logic and "fault handlers" (basically try-catch code block). The 3 on the for each block means the for each loop executed 3 times.
 ![](images/1.6.5.png)
@@ -242,3 +242,30 @@ Your integration should look something like this:
 ![](images/2.3.int.png)
 
 ***Save your integration.***
+
+### **Step 4: Activate, Test, Monitor**
+
+Now, you can follow the same steps as in steps 5 and 6 of section 1 to activate and test the integration. You should see the same result as the previous integration, but you will also receive an email containing the CSV for the table you have been working on. For your convenience the text instructions are reprinted below.
+
+**Activate the integration**
+
+1. First, you will need to resolve any errors that are present in the integration. You can see how many errors/warnings there are by a red/blue circled number next to "Last Saved". If you performed all the steps correctly, you should only see a red circled 1. You can click the circle to view the error and hover over the single entry to view the error.
+2. This error is resolved by **enabling a tracking variable** for the integration. Click the menu under the save button and select **Tracking**.
+3. Expand the "schedule" variable, and drag the "startTime" variable over the first "Drag a trigger field here". Instead of dragging you can also click the "startTime" variable and click the single right chevron. Click **Save**.
+4. Now your integration is ready for activation. **Save your integration**, then click **Close**. This brings you back to the integration home screen, and you can see that your status has changed from "Draft" to "Configured". Hover your cursor over your integration and click the "Power Button".
+5. In the dialog box, check the box for "Enable Tracing", and also the box for "Include Payload". Then click **Activate**.
+
+**Testing and monitoring the integration**
+
+1. Hover your cursor over your integration and click the "Play Button". Then click **Submit Now**.
+2. Click **Submit Now**.
+3. Now, the integration will run and either complete or throw an error during execution. To view the "job" that was just initiated, navigate back to the integration home page, then go to **Monitoring** > **Integrations** > **Tracking**.
+4. In this page, you will see integrations that have completed execution in the given time frame (default is last hour). It is likely that your integration has already executed and given a success or error. Drill down into the integration run by clicking on the black text (here, it is "start Time: 2021-...").
+5. In this page, you will see the execution pathway highlighted in green.
+6. Now you will take a look at the activity stream. Click the menu icon under the "Close" button in the upper right corner, and select **View Activity Stream**. You can click on the messages to view the payloads that were sent (enabled by checking the "Include Payload" option when activating the integration).
+
+Check your email!
+
+# Want more?
+
+Visit Oracle learning labs for more self-guided learning at https://github.com/oracle/learning-library. **Please be aware that the cloud environment in which you built this integration has limited cloud credits.**
