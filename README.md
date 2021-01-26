@@ -105,7 +105,7 @@ Summary page
 8. On the left hand side (LHS), expand **currRow** until you see the four variables (id, name, etc.), and on the right hand side (RHS), expand `Workshop$#..#` until you see the four variables. Drag the LHS variables to their RHS counterparts.
 ![](images/1.4.8.png)
 9. Now, you will have a little freedom. In this part, you will make a change to the data being uploaded. We will show two ways to modify the data, but you may experiment with other methods later. You may add both of these modifications to the data (and more) if you wish.
-  - Method 1: string concatenation. Click on **description** on the RHS, then click the edit icon under the x in the bottom editor box (looks like a screwdriver crossed with a wrench, circled in blue<!--the OIC sickle and star, as it were-->). In front of the contents (before the $ sign), type `concat(`, and after the whole string, type `, ".")`. The full string might look something like `concat($currRow/nsmpr0:WorkshopMChen/nsmpr0:description, ".")`. This concatenates a period / full stop at the end of the current description. Click the check mark (circled in red) to the right of the editor box to validate this string.
+  - Method 1: string concatenation. Click on **description** on the RHS, then click the edit icon under the x in the bottom editor box (looks like a screwdriver crossed with a wrench<!--the OIC sickle and star-->). In front of the contents (before the $ sign), type `concat(`, and after the whole string, type `, ".")`. The full string might look something like `concat($currRow/nsmpr0:WorkshopMChen/nsmpr0:description, ".")`. This concatenates a period / full stop at the end of the current description. Click the check mark to the right of the editor box to validate this string.
   ![](images/1.4.9.1.png)
   - Method 2: numeric calculation. Click on **quantity** on the RHS, then click the edit icon. At the end of the whole string, add `+1`. This increments the current quantity by 1. Click the check mark to validate this string.
   ![](images/1.4.9.2.png)
@@ -136,4 +136,18 @@ Now your integration is active, and you can run it to perform business operation
 ### **Step 6: Run and monitor integration**.
 
 This step shows how to manually trigger an integration and how to debug integrations.
-1. 
+1. Hover your cursor over your integration and click the "Play Button". Then click **Submit Now**.
+![](images/1.6.1.png)
+2. Click **Submit Now**.<!--OIC repeats everything twice, for a premier "Are you sure????? ?????" experience-->
+![](images/1.6.2.png)
+3. Now, the integration will run and either complete or throw an error during execution. To view the "job" that was just initiated, navigate back to the integration home page, then go to **Monitoring** > **Integrations** > **Tracking**.
+![](images/1.6.3.png)
+4. In this page, you will see integrations that have completed execution in the given time frame (default is last hour). It is likely that your integration has already executed and given a success or error. Drill down into the integration run by clicking on the black text (here it is "start Time: 2021-...").
+![](images/1.6.4.png)
+5. In this page, you will see the execution pathway highlighted in green. For most integrations, the structure is linear enough that it is not really interesting to look at (unless there is an error), but the green pathway is useful for complex integrations that use branching logic and "fault handlers" (basically try-catch code block). The 3 on the for each block means the for each loop executed 3 times.
+![](images/1.6.5.png)
+6. Now you will take a look at the activity stream. Click the menu icon under the "Close" button in the upper right corner, and select **View Activity Stream**. You can click on the messages to view the payloads that were sent (enabled by checking the "Include Payload" option when activating the integration). _Note: should this integration run have resulted in an error, at the end of the activity stream it will show the error message. If you ran into one of these, please contact your workshop instructor for specific debugging._
+![](images/1.6.6.png)
+
+That's it! For some of you, you will have built your first integration on Oracle Integration Cloud!<!--The first of many, hopefully-->
+
