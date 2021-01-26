@@ -109,6 +109,8 @@ Summary page
   ![](images/1.4.9.1.png)
   - Method 2: numeric calculation. Click on **quantity** on the RHS, then click the edit icon. At the end of the whole string, add `+1`. This increments the current quantity by 1. Click the check mark to validate this string.
   ![](images/1.4.9.2.png)
+  For more methods of data modification, you can click the components button near the upper right corner (looks like box with a small right arrow, circled in red) which opens up a list of functions and operators you can use in the mapper. **This is also where you can find functions defined in libraries you uploaded**.
+  ![](images/1.4.9.3.png)
 10. Once you have completed the modification to the data, click **Validate** at the top right of the screen, then **Close**.
 ![](images/1.4.10.png)
 
@@ -189,3 +191,28 @@ Your integration should look something like this:
 ### **Step 2: Append to file**
 
 In this step, you will append data to the file you just initialized.
+1. Hover your cursor over the grey arrow right after "updateTable", and choose the **Stage File** action.
+![](images/2.2.1.png)
+2. In the wizard, give the action a name, for instance "appendToFile", and click **Next**.
+![](images/2.2.2.png)
+3. Choose "Write File" for the **Stage File Operation**, and follow the same steps in part 5 for the file name and output directory. **Check the box for "Append to Existing File".** Then click **Next**.
+![](images/2.2.3.png)
+4. As before, make sure it is specifying CSV as the file format. Click **Next**.
+![](images/2.2.4.png)
+5. As before, choose [workshop.csv](workshop.csv), which is located in this git repository. The **record name** should be "record", and the **recordset name** should be "recordSet". Then click **Next**.
+![](images/2.2.5.png)
+6. Click **Done**.
+![](images/2.2.6.png)
+7. Select the **Map to appendToFile** node, and click the pencil icon to **edit** the mapper.
+![](images/2.2.7.png)
+8. Expand the RHS variables as before, and also expand **currRow** to the column variables on the LHS. Perform the same mapping as in the mapping to update the rows (see parts 7-10 of step 4 of section 1), then **Validate** and **Close**. _Note: to import the map xsl, you need to export the integration, then unzip the downloaded .iar file and locate the relevant mapper. As such a map does not yet exist, you will unfortunately have to re-create it. Fortunately the changes to make should not be too complex._
+![](images/2.2.8.png)
+
+Your integration should look something like this:
+![](images/2.2.int.png)
+
+***Save your integration.***
+
+### **Step 3: Send an email notification**
+
+In this step, you will configure OIC to send you the file you just built.
