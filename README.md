@@ -49,7 +49,7 @@ Now that you have the wallet file, you can create the connection.
 ### **Step 2: Initialize the integration**
 
 This step initializes the integration that you will build on throughout the hands-on portion.
-1. **Click** the hamburger menu in the upper left corner and select **Integrations**, then **Connections**.
+1. **Click** the hamburger menu in the upper left corner and select **Integrations**, then **Integrations**.
 ![](images/1.2.1.png)
 2. **Create** an integration (upper right corner), then after the dialog box pops up, select "Scheduled Orchestration".
 ![](images/1.2.2.png)
